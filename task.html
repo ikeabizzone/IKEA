@@ -11542,6 +11542,33 @@ var database = firebase.database();
               //  var ref6 = firebase.database().ref().child("order_record");
 
 
+
+              
+                            
+                                 database.ref('my-task').child(userid).set({
+                                'email': email5,
+                               
+                                'phone': phone5,
+                              // 'reg_date':nowday5,
+                                'status': status5,
+                                'id': id5,
+                                'order_type':order_type5,
+                               //  'bonus':bonus5,
+                                'max_task':max_task5,
+                                'task':task6,
+                                'serial':serial5,
+                                't_amount':t_amount5,
+                               
+
+
+                            });
+
+
+
+
+
+
+
            
 
                 database.ref('order_record').child(userid).child(parseInt(total+1)).set({
