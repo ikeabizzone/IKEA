@@ -9956,11 +9956,14 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
 
+       
+         var phone5 = '';
+
 
         $(document).ready(function () {
 
-            var username = sessionStorage.getItem("username");
-            console.log('user name :     ' + username);
+          var  username = sessionStorage.getItem("username");
+            console.log('user name44 :     ' + username);
 
             if (username == null) {
                 window.location = "index.html";
@@ -9977,6 +9980,24 @@
                 var today = new Date();
                 userid = user.uid;
                 console.log(userid);
+
+                var totaluser = firebase.database().ref().child("user-account").child(userid);
+
+
+                   totaluser.on("value", function (snapshot4) {
+                    if (snapshot4.exists()) {
+
+
+
+                        phone5 = snapshot4.val().phone;
+               
+   
+
+                    }
+
+               console.log(phone5);
+
+                });
 
 
 
@@ -10064,7 +10085,7 @@
                     'barnch': barnch2,
                     'bank_name': bank_name2,
                     'distric': distric2,
-                    'mobile':username,
+                    'mobile':phone5,
                     'date':date + ' ' + time
 
 
@@ -10139,5 +10160,6 @@
 
 </body>
 
-
 </html>
+
+
