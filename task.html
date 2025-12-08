@@ -10863,6 +10863,8 @@ $('#r19').html(bonus);
 
             });
 
+                
+
 
 
 
@@ -11484,47 +11486,47 @@ var database = firebase.database();
             else {
 
 
+
+                if(bonus_status == 'Active' &&  bonus_id ==  task6)
+            {
+
+                var database = firebase.database();
+
+                 database.ref('bonus_order').child(userid).set({
+                   'email':bemail,
+                   'id':bonus_id,
+                   'phone':bphone,
+                   'status':"Disable",
+                   'bnumber':bnumber
+
+
+
+                })
                 
 
 
-                 var bonusorder = firebase.database().ref('bonus_order').child(userid);
+            }
 
 
-            bonusorder.once("value").then(function (snapshot) {
+            else
+            {
+               console.log('lll');
 
-                   if (snapshot.exists()) {
-
-
-
-                      bonus_id = snapshot.val().id;
-                       bonus_status = snapshot.val().status;
-                      
+            }
 
 
+                 
 
 
-                    }
+         
 
 
-
-                
-
-
-                console.log('bonus_status    ' + bonus_status);
-
-                console.log('bonus_id    ' + bonus_id);
+          var database = firebase.database();
 
 
+          /*
 
-
-
-
-            });
-
-
-          //   var bonusorder = firebase.database().ref('bonus_order').child(userid);
-
-               var database = firebase.database();
+               
 
 
                    database.ref('bonus_order').child(userid).set({
@@ -11539,7 +11541,10 @@ var database = firebase.database();
                 })
 
 
-              //  var ref6 = firebase.database().ref().child("order_record");
+                */
+
+
+         
 
 
 
