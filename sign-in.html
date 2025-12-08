@@ -8577,6 +8577,21 @@ Sign-ins must be completed within the platform's valid sign-in time (10:00 am - 
     </div>
 
 
+    <div class="van-overlay" style="z-index: 2003;display: none;" id="det44"></div>
+    <div role="dialog" class="van-dialog van-dialog--round-button singDialog" aria-labelledby="NOTICE"
+        style="z-index: 2004;display: none;" id="det55">
+        <div class="van-dialog__header">NOTICE</div>
+        <div class="van-dialog__content">
+            <div class="van-dialog__message van-dialog__message--has-title">Your task is not complete, please complete the task</div>
+        </div>
+        <div class="van-goods-action van-dialog__footer"><button onclick="signq22()"
+                class="van-button van-button--danger van-button--large van-goods-action-button van-goods-action-button--first van-goods-action-button--last van-goods-action-button--danger van-dialog__confirm"
+                size="large">
+                <div class="van-button__content"><span class="van-button__text">YES</span></div>
+            </button></div>
+    </div>
+
+
     
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
@@ -8635,6 +8650,9 @@ Sign-ins must be completed within the platform's valid sign-in time (10:00 am - 
    var task4 = '';
    var task5 = '';
    var task6 = '';
+
+   var task55 = '';
+   var task66 = '';
    var task7 = '';
    var regulator= '';
    var regulator2 = '';
@@ -8721,8 +8739,8 @@ var time = '';
                         phone5 = snapshot4.val().phone;
                         serial5 = parseInt(snapshot4.val().serial);
                       //  bonus5 = snapshot4.val().bonus;
-                        task5 = parseInt(snapshot4.val().task);
-                        task6 = parseInt(snapshot4.val().task)+1;
+                        task55 = parseInt(snapshot4.val().task);
+                        task66 = parseInt(snapshot4.val().task)+1;
                        
                         
                         t_amount5 = parseInt(snapshot4.val().t_amount);
@@ -8802,6 +8820,7 @@ var time = '';
 
              console.log('my task555555  '+task1);
              console.log('maximum task :'+day7);
+             console.log('status :'+task_status);
 
 
             $('#rr').html(regulator+"/7");
@@ -9055,6 +9074,16 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
+         console.log('statusttttt :'+task_status); 
+         
+         
+         
+
+
+
+   
+
+
             if(task_status == 'Disable')
          {
              document.getElementById("det5").style.display = "block"
@@ -9064,10 +9093,12 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
          else
          {
 
-            console.log('ggggggggg  ' +regulator2);
+            if(max_task5 == task55)
+         {
 
+            console.log('task complete  ');
 
-            if(regulator2 == 1 && max_task5 == task5)
+                        if(regulator2 == 1)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9169,7 +9200,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
                                  'day6':day6,
                                  'day7':day7,
                                  'regulator':regulator2,
-                                 'task1':'Acrive',
+                                 'task1':'Active',
                                  'task2':  task2,
                                  'task3': task3,
                                  'task4': task4,
@@ -9199,7 +9230,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-              else if(regulator2 == 2 && max_task5 == task5)
+              else if(regulator2 == 2)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9331,7 +9362,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                  else if(regulator2 == 3 && max_task5 == task5)
+                  else if(regulator2 == 3)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9466,7 +9497,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                          else if(regulator2 == 4 && max_task5 == task5)
+                          else if(regulator2 == 4)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9600,7 +9631,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                     else if(regulator2 == 5 && max_task5 == task5)
+                     else if(regulator2 == 5)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9736,7 +9767,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
             
-                     else if(regulator2 == 6 && max_task5 == task5)
+                     else if(regulator2 == 6)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -9871,7 +9902,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
 
 
-                      else if(regulator2 == 7 && max_task5 == task5)
+                      else if(regulator2 == 7)
             {
 
                   database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
@@ -10002,16 +10033,19 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
             }
 
 
-            else
-            {
-                document.getElementById("det5").style.display = "block"
-            document.getElementById("det4").style.display = "block"
-            }
+         }
 
+         else
+         {
+            console.log('ggggggggg  ' +regulator2);
+            document.getElementById("det55").style.display = "block"
+            document.getElementById("det44").style.display = "block"
 
-
+         }
 
             
+
+
                        
 
 
@@ -10022,8 +10056,7 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
          }
 
 
-      
-
+  
        }
 
           function sign2() {
@@ -10031,6 +10064,15 @@ var dpro = firebase.database().ref().child("daily_profit").child(userid);
 
        document.getElementById("det5").style.display = "none"
             document.getElementById("det4").style.display = "none"
+            window.location = "sign-in.html";
+
+       }
+
+                 function sign22() {
+
+
+       document.getElementById("det55").style.display = "none"
+            document.getElementById("det44").style.display = "none"
             window.location = "sign-in.html";
 
        }
