@@ -11904,156 +11904,11 @@ document.getElementById("pb").style.display = "block"
 
 
             console.log(date + ' ' + time);
-            
 
 
-          if (typeof bonus === "string") {
-            var database = firebase.database();
-  console.log("a is text");
+            if (/^\d+$/.test(bonus)) {
+    console.log("String contains only digits");
 
-     
-
-       
-
-
-
-                        database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
-                        'title': 'Received Mystery Box',
-                       
-                        'serial': user_balance,
-                       
-                        'amount': parseInt(bonus),
-                        'cdate': date + ' ' + time ,
-               
-                    });
-
-
-                    
-                        database.ref('totalbalance').child(parseInt(6000000-total_balance2)).set({
-                        'title': 'Received Mystery Box',
-
-                        'serial': parseInt(total_balance2),
-                       
-                        
-                        'amount': parseInt(bonus),
-                        'cdate': date + ' ' + time,
-                        'phone': phone5,
-               
-                    });
-
-
-
-                     database.ref('mybalance').child(userid).set({
-                    
-
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                        
-                        'pre_balance': parseInt(pre_balance),
-                       
-               
-                    });
-
-
-                   
-
-
-
-                     database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
-                    
-
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                         'amount': parseInt(bonus),
-                       
-                        'pre_balance': parseInt(pre_balance),
-                        'title': 'Received Mystery Box',
-                        'cdate': date + ' ' + time,
-
-                       
-               
-                    });
-
-
-
-                          
-                    database.ref('mystery_box').child(userid).set({
-                    
-
-                           'email': memail,
-                               
-                                'phone': mphone,
-                                'morder':morder,
-                                'status':'Disable',
-                             
-                              
-                                 'bonus':bonus,
-                                 'falseone':falseone,
-                                 'falsetwo':falsetwo
-
-                       
-               
-                    });
-
-
-
-
- 
-
-                      if(date == dtime)
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(dprofit)+parseInt(bonus),
-                        
-                        'tday': date,
-                       
-               
-                    });
-
-                    }
-                    else
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(bonus),
-                        
-                        'tday': date,
-                       
-               
-                    });
-
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    setTimeout(function() {
-
-        document.getElementById("det1019").style.display = "block"
-
-        
-      //  window.location.href = "account.html"; // Hide the text after 5 seconds
-    }, 8000); 
-
-}
-
-else
-{
-    console.log("b is a number");
 
     var database = firebase.database();
 
@@ -12189,17 +12044,153 @@ else
     }, 8000); 
 
 
+
+
+
+            
+  /*
+
+          if (typeof bonus === "string") {
+           
+
+                    
+
+
+                    */
+
+
+                   
+
+
+
+
+}
+
+else
+{
+    console.log("b is a number");
+
+
+     var database = firebase.database();
+  console.log("a is text");
+
+     
+
+       
+
+
+
+
+                  
+
+                    
+                        database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
+                        'title': 'Received Mystery Box',
+                       
+                        'serial': user_balance,
+                       
+                        'amount': bonus,
+                        'cdate': date + ' ' + time ,
+               
+                    });
+
+
+                    
+                        database.ref('totalbalance').child(parseInt(6000000-total_balance2)).set({
+                        'title': 'Received Mystery Box',
+
+                        'serial': parseInt(total_balance2),
+                       
+                        
+                        'amount': bonus,
+                        'cdate': date + ' ' + time,
+                        'phone': phone5,
+               
+                    });
+
+                    
+                     database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
+                    
+
+                        'total_balance': parseInt(post_balance),
+                         'amount': bonus,
+                       
+                        'pre_balance': parseInt(pre_balance2),
+                        'title': 'Received Mystery Box',
+                        'cdate': date + ' ' + time,
+
+                       
+               
+                    });
+
+
+
+                          
+                    database.ref('mystery_box').child(userid).set({
+                    
+
+                           'email': memail,
+                               
+                                'phone': mphone,
+                                'morder':morder,
+                                'status':'Disable',
+                             
+                              
+                                 'bonus':bonus,
+                                 'falseone':falseone,
+                                 'falsetwo':falsetwo
+
+                       
+               
+                    });
+
+
+
+
+ 
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    setTimeout(function() {
+
+        document.getElementById("det1019").style.display = "block"
+
+        
+      //  window.location.href = "account.html"; // Hide the text after 5 seconds
+    }, 8000); 
+
+
+
+    
+ /*
+
+    
+*/
+
 }
 
 
               
 
- /*
 
 
                     
 
-    */
+    
 
        }
 
@@ -12241,8 +12232,12 @@ document.getElementById("pb").style.display = "block"
 
  var database = firebase.database();
 
-          if (typeof bonus === "string") {
-          var database = firebase.database();
+  
+        if (/^\d+$/.test(bonus)) {
+    console.log("String contains only digits");
+
+
+    var database = firebase.database();
 
 
 
@@ -12371,9 +12366,30 @@ document.getElementById("pb").style.display = "block"
 
 
     setTimeout(function() {
-     //   window.location.href = "account.html"; // Hide the text after 5 seconds
-     document.getElementById("det1019").style.display = "block"
+       // window.location.href = "account.html"; // Hide the text after 5 seconds
+       document.getElementById("det1019").style.display = "block"
     }, 8000); 
+
+
+
+
+
+            
+  /*
+
+          if (typeof bonus === "string") {
+           
+
+                    
+
+
+                    */
+
+
+                   
+
+
+
 
 }
 
@@ -12381,16 +12397,26 @@ else
 {
     console.log("b is a number");
 
-    var database = firebase.database();
+
+     var database = firebase.database();
+  console.log("a is text");
+
+     
+
+       
 
 
 
+
+                  
+
+                    
                         database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
                         'title': 'Received Mystery Box',
                        
                         'serial': user_balance,
                        
-                        'amount': parseInt(bonus),
+                        'amount': bonus,
                         'cdate': date + ' ' + time ,
                
                     });
@@ -12403,36 +12429,20 @@ else
                         'serial': parseInt(total_balance2),
                        
                         
-                        'amount': parseInt(bonus),
+                        'amount': bonus,
                         'cdate': date + ' ' + time,
                         'phone': phone5,
                
                     });
 
-
-
-                     database.ref('mybalance').child(userid).set({
                     
-
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                        
-                        'pre_balance': parseInt(pre_balance),
-                       
-               
-                    });
-
-
-                   
-
-
-
                      database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
                     
 
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                         'amount': parseInt(bonus),
+                        'total_balance': parseInt(post_balance),
+                         'amount': bonus,
                        
-                        'pre_balance': parseInt(pre_balance),
+                        'pre_balance': parseInt(pre_balance2),
                         'title': 'Received Mystery Box',
                         'cdate': date + ' ' + time,
 
@@ -12441,7 +12451,9 @@ else
                     });
 
 
-    database.ref('mystery_box').child(userid).set({
+
+                          
+                    database.ref('mystery_box').child(userid).set({
                     
 
                            'email': memail,
@@ -12464,34 +12476,7 @@ else
 
  
 
-                      if(date == dtime)
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(dprofit)+parseInt(bonus),
-                        
-                        'tday': date,
-                       
                
-                    });
-
-                    }
-                    else
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(bonus),
-                        
-                        'tday': date,
-                       
-               
-                    });
-
-                    }
 
 
 
@@ -12508,13 +12493,22 @@ else
 
 
     setTimeout(function() {
+
+        document.getElementById("det1019").style.display = "block"
+
+        
       //  window.location.href = "account.html"; // Hide the text after 5 seconds
-      document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 
-}
 
+    
+ /*
+
+    
+*/
+
+}
 
 
        }
@@ -12557,8 +12551,11 @@ document.getElementById("pb").style.display = "block"
 
 
 
-           if (typeof bonus === "string") {
-       var database = firebase.database();
+               if (/^\d+$/.test(bonus)) {
+    console.log("String contains only digits");
+
+
+    var database = firebase.database();
 
 
 
@@ -12687,9 +12684,30 @@ document.getElementById("pb").style.display = "block"
 
 
     setTimeout(function() {
-      //  window.location.href = "account.html"; // Hide the text after 5 seconds
-      document.getElementById("det1019").style.display = "block"
+       // window.location.href = "account.html"; // Hide the text after 5 seconds
+       document.getElementById("det1019").style.display = "block"
     }, 8000); 
+
+
+
+
+
+            
+  /*
+
+          if (typeof bonus === "string") {
+           
+
+                    
+
+
+                    */
+
+
+                   
+
+
+
 
 }
 
@@ -12697,16 +12715,26 @@ else
 {
     console.log("b is a number");
 
-    var database = firebase.database();
+
+     var database = firebase.database();
+  console.log("a is text");
+
+     
+
+       
 
 
 
+
+                  
+
+                    
                         database.ref('userbalance').child(userid).child(parseInt(6000-user_balance)).set({
                         'title': 'Received Mystery Box',
                        
                         'serial': user_balance,
                        
-                        'amount': parseInt(bonus),
+                        'amount': bonus,
                         'cdate': date + ' ' + time ,
                
                     });
@@ -12719,36 +12747,20 @@ else
                         'serial': parseInt(total_balance2),
                        
                         
-                        'amount': parseInt(bonus),
+                        'amount': bonus,
                         'cdate': date + ' ' + time,
                         'phone': phone5,
                
                     });
 
-
-
-                     database.ref('mybalance').child(userid).set({
                     
-
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                        
-                        'pre_balance': parseInt(pre_balance),
-                       
-               
-                    });
-
-
-                   
-
-
-
                      database.ref('balance_record').child(userid).child(parseInt(6000-user_balance)).set({
                     
 
-                        'total_balance': parseInt(bonus)+parseInt(pre_balance),
-                         'amount': parseInt(bonus),
+                        'total_balance': parseInt(post_balance),
+                         'amount': bonus,
                        
-                        'pre_balance': parseInt(pre_balance),
+                        'pre_balance': parseInt(pre_balance2),
                         'title': 'Received Mystery Box',
                         'cdate': date + ' ' + time,
 
@@ -12758,7 +12770,8 @@ else
 
 
 
-                          database.ref('mystery_box').child(userid).set({
+                          
+                    database.ref('mystery_box').child(userid).set({
                     
 
                            'email': memail,
@@ -12781,34 +12794,7 @@ else
 
  
 
-                      if(date == dtime)
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(dprofit)+parseInt(bonus),
-                        
-                        'tday': date,
-                       
                
-                    });
-
-                    }
-                    else
-                    {
-
-                        database.ref('daily_profit').child(userid).set({
-                    
-
-                        'total_balance': parseInt(bonus),
-                        
-                        'tday': date,
-                       
-               
-                    });
-
-                    }
 
 
 
@@ -12825,12 +12811,23 @@ else
 
 
     setTimeout(function() {
+
+        document.getElementById("det1019").style.display = "block"
+
+        
       //  window.location.href = "account.html"; // Hide the text after 5 seconds
-      document.getElementById("det1019").style.display = "block"
     }, 8000); 
 
 
+
+    
+ /*
+
+    
+*/
+
 }
+
 
        }
 
